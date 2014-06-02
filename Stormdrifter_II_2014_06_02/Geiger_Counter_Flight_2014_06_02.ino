@@ -37,10 +37,7 @@ uint16_t crccat(char *msg)
   return(x);
 }
 
-// On the Ethernet Shield, CS is pin 4. Note that even if it's not
-// used as the CS pin, the hardware CS pin (10 on most Arduino boards,
-// 53 on the Mega) must be left as an output or the SD library
-// functions will not work.
+//Pin Definitions.
 const int RADIOPIN = 0;
 const int RED_LED = 22;
 const int YELLOW_LED = 1;
