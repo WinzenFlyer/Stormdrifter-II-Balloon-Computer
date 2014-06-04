@@ -1,10 +1,13 @@
 /* Controls the DS18B20 temperature sensor and HIH-4030 Humidity sensor and also measures battery voltage from the voltage divider on the board. 
 *  The BMP085 is now controlled by using the Adafruit Library for it.
 */
+
+
+/* Reads Temperature Sensor DS18B20 in DEG CELSIUS
+ *
+ */
 float getTemp()
 {
-  // returns the temperature from one DS18B20 in DEG Celsius
-  
   byte data[12];
   byte addr[8];
   
@@ -16,14 +19,14 @@ float getTemp()
   
   if( OneWire::crc8( addr, 7) != addr[7])
   {
-    Serial.println("CRC is not valid!");
-    return -1000;
+    //Serial.println("CRC is not valid!");  //No Serialconnection used
+    return -1001;
   }
   
   if( addr[0] != 0x10 && addr[0] != 0x28)
   {
-    Serial.print("Device is not recognized");
-    return -1000;
+    //Serial.print("Device is not recognized");  //NO serial Connection used
+    return -1002;
   }
   
   ds.reset();
